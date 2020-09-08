@@ -33,7 +33,7 @@ echo "Error - not found: ..\%1\build.msvc.cmd"
 exit 1
 :cmdBuildRun
 pushd "..\%1"
-call build.msvc.cmd %ACTION%
+cmd.exe /C "build.msvc.cmd %ACTION%"
 if errorlevel 1 goto cmdBuildError
 popd
 goto :eof

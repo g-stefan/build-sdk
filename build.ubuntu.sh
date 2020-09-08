@@ -11,7 +11,7 @@ RESTORE_PATH=$PATH
 RESTORE_LD_LIBRARY_PATH=$LD_LIBRARY_PATH
 
 if [ "$XYO_PATH_REPOSITORY" = "" ]; then
-	PATH_REPOSITORY=../repository
+	PATH_REPOSITORY=./repository
 	if [ -f ../../sdk.build.ubuntu.sh ]; then
 		PATH_REPOSITORY=../../repository
 	fi
@@ -23,7 +23,7 @@ if [ "$XYO_PATH_REPOSITORY" = "" ]; then
 fi
 
 if [ "$XYO_PATH_RELEASE" = "" ]; then
-	PATH_RELEASE=../release
+	PATH_RELEASE=./release
 	if [ -f ../../sdk.build.ubuntu.sh ]; then
 		PATH_RELEASE=../../release
 	fi
