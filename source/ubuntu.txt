@@ -10,20 +10,6 @@ html-to-rc
 file-to-js
 time-cmd
 quantum-script
-#
-# Windows port
-# 
-vendor-lzma
-vendor-zlib
-vendor-bzip2
-vendor-win-iconv
-vendor-libpng
-vendor-libxml2
-vendor-libxslt
-vendor-openssl
-#
-# Cross-platform
-#
 xyo-pixel32
 png-to-icon
 exec-cgi
@@ -58,18 +44,6 @@ quantum-script-extension-xml
 quantum-script-extension-openssl
 quantum-script-extension-pixel32
 quantum-script-extension-sshremote
+quantum-script-extension-magnet
 magnet
-#
-# Windows
-#
-quantum-script-extension-scard
-xyo-coff-to-def
-lib-to-dll
-xyo-win
-xyo-win-inject
-xyo-generate-hook
-dll-inject
-dll-inject-sample
-net-use
-vendor-civetweb
 #

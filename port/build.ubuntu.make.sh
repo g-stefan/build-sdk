@@ -18,18 +18,18 @@ if [ "$1" = "debug" ]; then
 fi
 # --
 
-echo "-> $ACTION sdk"
+echo "-> $ACTION build-sdk"
 
 build(){
 	if [ -n "$1" ]; then		
 		if [ -d "../$1" ]; then
-			if [ -f "../$1/build.ubuntu.sh" ]; then
-				cd ../$1; /bin/sh -- build.ubuntu.sh $ACTION;
+			if [ -f "../$1/port/build.ubuntu.sh" ]; then
+				cd ../$1; /bin/sh -- ./port/build.ubuntu.sh $ACTION;
 				if [ "$?" = "1" ]; then
 					exit 1
 				fi
 			else
-				echo "Error - not found: ../$1/build.ubuntu.sh"
+				echo "Error - not found: ../$1/port/build.ubuntu.sh"
 				exit 1			
 			fi
 		else
@@ -39,7 +39,7 @@ build(){
 	fi
 }
 
-{ <"build-sdk.source.ubuntu.txt" tr -d "\r"; echo; } | while read -r line; do
+{ <"./source/ubuntu.txt" tr -d "\r"; echo; } | while read -r line; do
 	case "$line" in
 		\#*) continue ;;
 	esac

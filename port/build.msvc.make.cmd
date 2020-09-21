@@ -19,29 +19,29 @@ if "%ACTION%" == "optional-release" set HAS_OPTIONAL=Yes&& set ACTION=release
 if "%ACTION%" == "optional-test" set HAS_OPTIONAL=Yes&& set ACTION=test
 rem ---
 
-echo -^> %ACTION% sdk
+echo -^> %ACTION% build-sdk
 
 goto StepX
 :build
 if "%1" == "" goto :eof
-if exist ..\%1\ goto :cmdBuildCheck
+if exist "..\%1\" goto :cmdBuildCheck
 echo "Error - not found: %1"
 exit 1
 :cmdBuildCheck
-if exist ..\%1\build.msvc.cmd goto :cmdBuildRun
-echo "Error - not found: ..\%1\build.msvc.cmd"
+if exist "..\%1\port\build.msvc.cmd" goto :cmdBuildRun
+echo "Error - not found: ..\%1\port\build.msvc.cmd"
 exit 1
 :cmdBuildRun
 pushd "..\%1"
-cmd.exe /C "build.msvc.cmd %ACTION%"
+cmd.exe /C ".\port\build.msvc.cmd %ACTION%"
 if errorlevel 1 goto cmdBuildError
 popd
 goto :eof
 :cmdBuildError
 popd
-echo "Error - sdk %ACTION% : %1"
+echo "Error - build-sdk %ACTION% : %1"
 exit 1
 :StepX
 
-for /F "eol=# tokens=1" %%i in (build-sdk.source.windows.txt) do call :build %%i
-if "%HAS_OPTIONAL%" == "Yes" for /F "eol=# tokens=1" %%i in (build-sdk.source.windows.optional.txt) do call :build %%i
+for /F "eol=# tokens=1" %%i in (.\source\windows.txt) do call :build %%i
+if "%HAS_OPTIONAL%" == "Yes" for /F "eol=# tokens=1" %%i in (.\source\windows.optional.txt) do call :build %%i
