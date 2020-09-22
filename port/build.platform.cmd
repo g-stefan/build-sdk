@@ -25,6 +25,7 @@ if exist "..\%1\port\build.platform.cmd" goto :cmdBuildRun
 echo "Error - not found: ..\%1\port\build.platform.cmd"
 exit 1
 :cmdBuildRun
+echo.
 pushd "..\%1"
 cmd.exe /C ".\port\build.platform %ACTION%"
 if errorlevel 1 goto cmdBuildError
