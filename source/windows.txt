@@ -74,3 +74,20 @@ dll-inject-sample
 net-use
 vendor-civetweb
 #
+# Vendor
+#
+vendor-libzip
+vendor-libssh2
+vendor-sqlite3
+vendor-imap
+vendor-curl
+vendor-xlnt
+vendor-wxwidgets
+vendor-boost
+vendor-pcre
+vendor-expat
+vendor-apr
+vendor-apr-util
+vendor-httpd
+vendor-glfw
+#
