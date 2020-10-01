@@ -20,6 +20,7 @@ vendor-win-iconv
 vendor-libpng
 vendor-libxml2
 vendor-libxslt
+vendor-perl
 vendor-openssl
 #
 # Cross-platform
