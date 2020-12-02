@@ -91,4 +91,5 @@ vendor-apr
 vendor-apr-util
 vendor-httpd
 vendor-glfw
+vendor-llvm
 #
