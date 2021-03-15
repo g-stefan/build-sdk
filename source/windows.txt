@@ -13,8 +13,8 @@ quantum-script
 #
 # Windows port
 # 
-vendor-ninja-build
 vendor-lzma
+vendor-ninja-build
 vendor-zlib
 vendor-bzip2
 vendor-win-iconv

@@ -12,6 +12,8 @@ if "%1" == "debug" set XYO_COMPILE_DEBUG=1
 if "%1" == "debug" set ACTION=install
 rem ---
 
+echo -^> %ACTION% build-sdk
+
 goto StepX
 :build
 if "%1" == "" goto :eof
@@ -19,12 +21,13 @@ if exist "..\%1\" goto :cmdBuildCheck
 echo "Error - not found: %1"
 exit 1
 :cmdBuildCheck
-if exist "..\%1\port\build.msvc.cmd" goto :cmdBuildRun
-echo "Error - not found: ..\%1\port\build.msvc.cmd"
+if exist "..\%1\build\platform.cmd" goto :cmdBuildRun
+echo "Error - not found: ..\%1\build\platform.cmd"
 exit 1
 :cmdBuildRun
+echo.
 pushd "..\%1"
-cmd.exe /C ".\port\build.msvc.cmd %ACTION%"
+cmd.exe /C ".\build\platform %ACTION%"
 if errorlevel 1 goto cmdBuildError
 popd
 goto :eof

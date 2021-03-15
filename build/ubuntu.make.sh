@@ -23,13 +23,13 @@ echo "-> $ACTION build-sdk"
 build(){
 	if [ -n "$1" ]; then		
 		if [ -d "../$1" ]; then
-			if [ -f "../$1/port/build.ubuntu.sh" ]; then
-				cd ../$1; /bin/sh -- ./port/build.ubuntu.sh $ACTION;
+			if [ -f "../$1/build/ubuntu.sh" ]; then
+				cd ../$1; /bin/sh -- ./build/ubuntu.sh $ACTION;
 				if [ "$?" = "1" ]; then
 					exit 1
 				fi
 			else
-				echo "Error - not found: ../$1/port/build.ubuntu.sh"
+				echo "Error - not found: ../$1/build/ubuntu.sh"
 				exit 1			
 			fi
 		else
